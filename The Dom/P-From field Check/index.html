@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Field Check</title>
+</head>
+<body>
+    <form action="" id="myform">
+        <h4 id="err"></h4>
+        <input type="text" id="ip-1">
+        <input type="text" id="ip-2">
+        <input id="submit" type="submit" value="Submit">
+        
+    </form>
+    <script>
+        //2nd way;
+
+        var ips=document.querySelectorAll('input[type=text]');
+        console.log(ips);
+        var err=document.querySelector('#err')
+
+        var form=document.querySelector('#myform');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            for(i=0; i<ips.length;i++){
+                if(ips[i].value.trim()===''){
+                    err.textContent="Error! field are Empty";
+                    err.style.color='red';
+                    break;
+                }
+                else{
+                    err.textContent='';
+                }
+            }
+        })
+        // var ip1=document.querySelector('#ip-1');
+        // var ip2=document.querySelector('#ip-2');
+        
+        // var form=document.querySelector('#myform');
+        // var err=document.querySelector('#err');
+
+        
+        // form.addEventListener("submit",(ev)=>{
+        //     ev.preventDefault();
+        //     if(ip1.value===""||ip2.value===""){
+        //         err.textContent="Error! Some field are empty";
+        //         err.style.color='red';
+        //     }
+        //     else{
+        //         err.textContent='';
+                
+        //     }
+            
+            
+        // })
+
+
+    </script>
+    
+</body>
+</html>
