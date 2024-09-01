@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add remove items</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <h1>Check list</h1>
+        </div>
+
+        <div id="todo-input">
+            <input id="input" type="text">
+        <button id="add">Add</button>
+        </div>
+        
+        <div id="todo-container">
+
+        </div>
+    </div>
+    
+
+    <script>
+        var input=document.querySelector('#input');
+        var add=document.querySelector('#add');
+        var container=document.querySelector('#todo-container');
+        add.addEventListener('click',()=>{
+            if(input.value.trim()!=''){
+                var box=document.createElement('div');
+                box.classList.add('box');
+                var row1=document.createElement('div');
+                row1.classList.add('row-1');
+                var para=document.createElement('p');
+                para.textContent=input.value;
+                para.style.display='inline';
+                row1.appendChild(para);
+                var start=document.createElement('button');
+                start.textContent='Start'
+                row1.appendChild(start);
+                var row2=document.createElement('div');
+                row2.classList.add('row-1');
+                var para2=document.createElement('p');
+                para2.textContent='Time Taken';
+                var interval;
+                start.addEventListener('click',()=>{
+                    var time=0;
+                    interval=setInterval(()=>{
+                        time++;
+                        para2.textContent='Time Taken: '+ time +' seconds';
+                    },1000);
+                    
+                })
+
+                para2.style.display='inline';
+                row2.appendChild(para2);
+                var button2=document.createElement('button');
+                button2.textContent='Stop';
+                button2.addEventListener('click',()=>{
+                    clearInterval(interval);
+                })
+                row2.appendChild(button2);
+                box.appendChild(row1);
+                box.appendChild(row2);
+                container.appendChild(box);
+            
+
+                // var li=document.createElement('li');
+                // li.textContent=input.value;
+                // var remove=document.createElement('button');
+                // remove.textContent='Remove';
+                // remove.style.marginLeft='15px';
+                // remove.addEventListener('click',()=>{
+                //     li.remove();
+                // })
+                // var watch=document.createElement('button');
+                // watch.textContent="StopWatch";
+                // li.appendChild(watch);
+                // watch.addEventListener('click',()=>{
+                //     var start=document.createElement('button');
+                //     start.textContent='Start'
+                //     start.classList.add('btn')
+                //     watch.appendChild(start);  
+                // })
+                // li.appendChild(remove);
+                // container.appendChild(li);
+            }
+        })
+        
+
+
+    </script>
+
+    
+</body>
+</html>
