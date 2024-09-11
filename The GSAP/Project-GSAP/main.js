@@ -1,4 +1,6 @@
+gsap.registerPlugin(ScrollTrigger);
 var tl=gsap.timeline();
+
 tl.from("#nav",{
     opacity:0,
 })
@@ -36,5 +38,18 @@ tl.from("#bottom h3",{
     stagger:0.3
 })
 
+gsap.from("#project #circle", {
+    y:-50,
+    duration: 1,
+    repeat: -1,
+    scrollTrigger: {
+        trigger: "#project #circle",
+        start: "top center",  
+        end: "bottom top",    
+        scroller: "body",     
+        markers: true,
+               
+    },
+});
 
 
